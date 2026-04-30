@@ -221,49 +221,8 @@ Base URL: `http://localhost:8080/api/resume`
 | `POST` | `/score` | ATS score calculation | `{ "resumeText": "..." }` |
 | `POST` | `/skill-gap` | Skill gap vs job description | `{ "resumeText": "...", "jobDescription": "..." }` |
 
-### Example Response — `/analyze`
 
-```json
-{
-  "skills": ["Java", "Spring Boot", "REST APIs", "SQL", "Docker"],
-  "strengths": [
-    "Strong backend development experience",
-    "Good understanding of RESTful API design"
-  ],
-  "weaknesses": [
-    "Limited cloud platform experience",
-    "No CI/CD pipeline mentioned"
-  ],
-  "suggestions": [
-    "Add measurable achievements (e.g. reduced load time by 30%)",
-    "Include AWS or Azure certifications"
-  ],
-  "rawText": "..."
-}
-```
 
-### Example Response — `/score`
-
-```json
-{
-  "overallScore": 59,
-  "skillScore": 40,
-  "keywordScore": 32,
-  "experienceScore": 65,
-  "formattingScore": 100,
-  "scoreLabel": "AVERAGE",
-  "foundKeywords": ["java", "spring", "sql", "git", "react"],
-  "missingKeywords": ["aws", "docker", "kubernetes", "ci/cd"],
-  "skillsBreakdown": {
-    "Keywords": 32,
-    "Skills": 40,
-    "Experience": 65,
-    "Formatting": 100
-  }
-}
-```
-
----
 
 ## 🛠️ Tech Stack
 
@@ -306,33 +265,8 @@ set OPENAI_API_KEY=your_gemini_key_here      # Windows
 
 ---
 
-## 🐛 Troubleshooting
 
-| Problem | Solution |
-|---|---|
-| `429 Too Many Requests` | Gemini free tier rate limit hit. Wait 1 minute or set `mock: true` |
-| `404 model not found` | Wrong model name. Use `gemini-2.0-flash` in application.yaml |
-| `Failed to upload file` | Check backend is running on port 8080 |
-| `crypto.hash is not a function` | Node.js version too old. Upgrade to 20.19+ or 22+ |
-| `CORS error` | Make sure backend is running before frontend |
-| Port 8080 already in use | Change `server.port` in application.yaml |
 
----
-
-## 📄 License
-
-MIT License — free to use, modify, and distribute.
-
----
-
-## 🙌 Built With
-
-- [Google Gemini AI](https://aistudio.google.com) — AI analysis engine
-- [Spring Boot](https://spring.io/projects/spring-boot) — Backend framework
-- [Apache Tika](https://tika.apache.org) — Document parsing
-- [React](https://react.dev) — Frontend framework
-- [Tailwind CSS](https://tailwindcss.com) — Styling
-- [Recharts](https://recharts.org) — Data visualization
 
 ---
 
